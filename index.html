@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">القيادة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #0f172a;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --card-hover: rgba(255, 255, 255, 0.9);
+            --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #030712;
+            --text-color: #f8fafc;
+            --glass-bg: rgba(15, 23, 42, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --card-hover: rgba(30, 41, 59, 0.85);
+            --accent-gradient: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+            --shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
+            overflow-x: hidden;
+        }
+
+        /* الناف بار العائمة العالمية */
+        nav {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            max-width: 550px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        nav h1 {
+            font-size: 1.1rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(150, 150, 150, 0.1);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px 140px;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        .header-section p {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* شبكة الأقسام العصرية */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            background: var(--card-hover);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        .glass-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .glass-card p {
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* شاشة المواد والكتب الداخلية */
+        #content-view {
+            display: none;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+            margin-bottom: 50px;
+        }
+
+        .back-btn {
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .back-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        .subject-box {
+            margin-bottom: 30px;
+        }
+
+        .subject-box h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #3b82f6;
+            border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+            padding-bottom: 8px;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .book-item {
+            background: rgba(150, 150, 150, 0.05);
+            border: 1px solid var(--glass-border);
+            padding: 15px 20px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .book-item span {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .download-btn {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* قسم التواصل الاحترافي */
+        .contact-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .contact-section p {
+            margin-bottom: 25px;
+            opacity: 0.7;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
+        .telegram { background: linear-gradient(135deg, #0088cc, #005f8c); }
+        .facebook { background: linear-gradient(135deg, #1877F2, #0c4a9c); }
+        .instagram { background: linear-gradient(135deg, #f09433, #dc2743, #bc1888); }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            opacity: 0.5;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <nav>
+        <h1 id="nav-brand">القيادة</h1>
+        <div class="nav-links">
+            <a href="#" onclick="showHome()">الرئيسية</a>
+            <a href="#contact">التواصل</a>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()" title="تغيير المظهر">
+            <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+    </nav>
+
+    <div class="container">
+        <div class="header-section">
+            <h2 id="main-heading">القيادة</h2>
+            <p id="main-desc">جاري تحميل المحتوى...</p>
+        </div>
+
+        <!-- واجهة الأقسام الرئيسية -->
+        <div id="categories-view">
+            <div id="categories-grid" class="grid-container">
+                <!-- يتم تعبئتها ديناميكياً من ملف data.json -->
+            </div>
+        </div>
+
+        <!-- واجهة تفاصيل القسم والمواد والكتب -->
+        <div id="content-view">
+            <button class="back-btn" onclick="showHome()"><i class="fa-solid fa-arrow-right"></i> رجوع للأقسام</button>
+            <h3 id="current-category-title" style="margin-bottom: 25px; font-size: 1.8rem; font-weight: 800;"></h3>
+            <div id="subjects-container">
+                <!-- يتم تعبئتها ديناميكياً -->
+            </div>
+        </div>
+
+        <!-- قسم التواصل -->
+        <div id="contact" class="contact-section" style="margin-top: 60px;">
+            <h3>تواصل معنا</h3>
+            <p>لديك استفسار أو واجهتك مشكلة؟ تواصل معنا مباشرة عبر المنصات التالية:</p>
+            <div class="social-links" id="social-container">
+                <!-- يتم جلب اللينكات ديناميكياً -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let globalData = {};
+
+        // جلب البيانات من ملف data.json وتحديث الواجهة أوتوماتيكياً
+        async function loadSiteData() {
+            try {
+                const response = await fetch('data.json?t=' + new Date().getTime());
+                globalData = await response.json();
+                
+                // تحديث النصوص والعناوين
+                document.getElementById('page-title').innerText = globalData.site_name;
+                document.getElementById('nav-brand').innerText = globalData.site_name;
+                document.getElementById('main-heading').innerText = globalData.site_name;
+                document.getElementById('main-desc').innerText = globalData.site_description;
+
+                // رسم الأقسام
+                renderCategories();
+                // رسم وسائل التواصل
+                renderContact();
+            } catch (error) {
+                console.error("Error loading site data:", error);
+                document.getElementById('categories-grid').innerHTML = '<div class="empty-state">عفواً، برجاء رفع ملف data.json أو تشغيل السيرفر بصورة صحيحة.</div>';
+            }
+        }
+
+        function renderCategories() {
+            const grid = document.getElementById('categories-grid');
+            grid.innerHTML = '';
+            
+            const categories = globalData.categories || {};
+            const keys = Object.keys(categories);
+
+            if (keys.length === 0) {
+                grid.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;">لا توجد أقسام مضافة حتى الآن. ابدأ بإضافتها عبر بوت التليجرام! 🚀</div>';
+                return;
+            }
+
+            keys.forEach(catName => {
+                const card = document.createElement('div');
+                card.className = 'glass-card';
+                card.onclick = () => openCategory(catName);
+                card.innerHTML = `
+                    <h3>${catName}</h3>
+                    <p>تصفح الكتب والمواد الدراسية</p>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openCategory(catName) {
+            document.getElementById('categories-view').style.display = 'none';
+            document.getElementById('content-view').style.display = 'block';
+            document.getElementById('current-category-title').innerText = catName;
+
+            const container = document.getElementById('subjects-container');
+            container.innerHTML = '';
+
+            const subjects = globalData.categories[catName].subjects || {};
+            const subKeys = Object.keys(subjects);
+
+            if (subKeys.length === 0) {
+                container.innerHTML = '<div class="empty-state">لا توجد مواد أو كتب في هذا القسم بعد.</div>';
+                return;
+            }
+
+            subKeys.forEach(subName => {
+                const subBox = document.createElement('div');
+                subBox.className = 'subject-box';
+                
+                let booksHtml = '';
+                const books = subjects[subName] || [];
+                
+                if (books.length === 0) {
+                    booksHtml = '<p style="opacity: 0.5; font-size: 0.9rem;">لا توجد كتب مضافة لهذه المادة بعد.</p>';
+                } else {
+                    booksHtml = '<div class="books-grid">';
+                    books.forEach(book => {
+                        booksHtml += `
+                            <div class="book-item">
+                                <span>${book.title}</span>
+                                <a href="${book.file_url}" target="_blank" class="download-btn"><i class="fa-solid fa-download"></i> تحميل</a>
+                            </div>
+                        `;
+                    });
+                    booksHtml += '</div>';
+                }
+
+                subBox.innerHTML = `
+                    <h4><i class="fa-solid fa-book-bookmark"></i> ${subName}</h4>
+                    ${booksHtml}
+                `;
+                container.appendChild(subBox);
+            });
+        }
+
+        function showHome() {
+            document.getElementById('content-view').style.display = 'none';
+            document.getElementById('categories-view').style.display = 'block';
+        }
+
+        function renderContact() {
+            const container = document.getElementById('social-container');
+            const contact = globalData.contact || {};
+            
+            container.innerHTML = `
+                <a href="${contact.whatsapp || '#'}" target="_blank" class="social-btn whatsapp"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                <a href="${contact.telegram || '#'}" target="_blank" class="social-btn telegram"><i class="fa-brands fa-telegram"></i> تليجرام</a>
+                <a href="${contact.facebook || '#'}" target="_blank" class="social-btn facebook"><i class="fa-brands fa-facebook-f"></i> فيسبوك</a>
+                <a href="${contact.instagram || '#'}" target="_blank" class="social-btn instagram"><i class="fa-brands fa-instagram"></i> إنستجرام</a>
+            `;
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            if (body.getAttribute('data-theme') === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                icon.className = 'fa-solid fa-sun';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                icon.className = 'fa-solid fa-moon';
+            }
+        }
+
+        // تشغيل التحميل عند فتح الموقع
+        loadSiteData();
+    </script>
+</body>
+</html>
