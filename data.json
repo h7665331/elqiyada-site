@@ -1,25 +1,12 @@
 {
-    "site_name": "موقع ابو عمر التعليمي",
-    "site_description": "موقع كتب جديد جدا جدا",
-    "categories": {
-        "اولى ثانوي عام": {
-            "subjects": {
-                "كيمياء عضويه": [
-                    {
-                        "title": "كتاب الامتحان الترم الاول",
-                        "file_url": "https://t.me/uejejjjjiii/2"
-                    }
-                ]
-            }
-        }
-    },
-    "contact": {
-        "whatsapp": "https://wa.me/+201014047971",
-        "telegram": "https://t.me/fxxso",
-        "facebook": "https://www.facebook.com/youm7",
-        "instagram": "https://www.instagram.com/instagram"
-    },
-    "admins": [
-        1196826791
-    ]
+  "site_name": "القيادة",
+  "site_description": "المكتبة الرقمية الشاملة لتحميل كتب جميع الصفوف والمراحل التعليمية",
+  "categories": {},
+  "contact": {
+    "whatsapp": "https://wa.me/+201014047971",
+    "telegram": "https://t.me/fxxso",
+    "facebook": "https://www.facebook.com/youm7",
+    "instagram": "https://www.instagram.com/instagram"
+  },
+  "admins": [ضع_أيدي_تليجرام_الخاص_ببخطواتك_هنا]
 }
