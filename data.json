@@ -1,12 +1,14 @@
 {
-  "site_name": "القيادة",
-  "site_description": "المكتبة الرقمية الشاملة لتحميل كتب جميع الصفوف والمراحل التعليمية",
-  "categories": {},
-  "contact": {
-    "whatsapp": "https://wa.me/+201014047971",
-    "telegram": "https://t.me/fxxso",
-    "facebook": "https://www.facebook.com/youm7",
-    "instagram": "https://www.instagram.com/instagram"
-  },
-  "admins": [1196826791]
+    "site_name": "Tamaridyano",
+    "site_description": "المكتبة الرقمية الشاملة لتحميل كتب جميع الصفوف والمراحل التعليمية",
+    "categories": {},
+    "contact": {
+        "whatsapp": "https://wa.me/+201014047971",
+        "telegram": "https://t.me/fxxso",
+        "facebook": "https://www.facebook.com/youm7",
+        "instagram": "https://www.instagram.com/instagram"
+    },
+    "admins": [
+        1196826791
+    ]
 }
