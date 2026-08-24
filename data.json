@@ -3,7 +3,9 @@
     "site_description": "موقع كتب جديد جدا جدا",
     "categories": {
         "اولى ثانوي عام": {
-            "subjects": {}
+            "subjects": {
+                "كيمياء عضويه": []
+            }
         }
     },
     "contact": {
