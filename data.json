@@ -1,7 +1,11 @@
 {
     "site_name": "موقع ابو عمر التعليمي",
     "site_description": "موقع كتب جديد جدا جدا",
-    "categories": {},
+    "categories": {
+        "اولى ثانوي عام": {
+            "subjects": {}
+        }
+    },
     "contact": {
         "whatsapp": "https://wa.me/+201014047971",
         "telegram": "https://t.me/fxxso",
