@@ -40,6 +40,9 @@
             min-height: 100vh;
             background-image: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
                               radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             overflow-x: hidden;
         }
 
@@ -125,9 +128,10 @@
 
         .header-section p {
             font-size: 1.1rem;
-            opacity: 0.7;
+            opacity: 0.8;
             max-width: 600px;
             margin: 0 auto;
+            font-weight: 600;
         }
 
         .grid-container {
@@ -163,7 +167,7 @@
         }
 
         .glass-card p {
-            opacity: 0.6;
+            opacity: 0.7;
             font-size: 0.9rem;
         }
 
@@ -264,7 +268,7 @@
 
         .contact-section p {
             margin-bottom: 25px;
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
         .social-links {
@@ -299,8 +303,9 @@
         .empty-state {
             text-align: center;
             padding: 40px;
-            opacity: 0.5;
+            opacity: 0.6;
             font-size: 1.1rem;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -352,6 +357,11 @@
                 document.getElementById('nav-brand').innerText = globalData.site_name;
                 document.getElementById('main-heading').innerText = globalData.site_name;
                 document.getElementById('main-desc').innerText = globalData.site_description;
+
+                // تطبيق خلفية الموقع المخصصة لو البوت رفعها
+                if (globalData.background_image) {
+                    document.body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('${globalData.background_image}')`;
+                }
 
                 renderCategories();
                 renderContact();
@@ -409,7 +419,7 @@
                 const books = subjects[subName] || [];
                 
                 if (books.length === 0) {
-                    booksHtml = '<p style="opacity: 0.5; font-size: 0.9rem;">لا توجد كتب مضافة لهذه المادة بعد.</p>';
+                    booksHtml = '<p style="opacity: 0.6; font-size: 0.9rem; font-weight: 600;">لا توجد كتب مضافة لهذه المادة بعد.</p>';
                 } else {
                     booksHtml = '<div class="books-grid">';
                     books.forEach(book => {
