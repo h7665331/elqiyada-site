@@ -5,7 +5,12 @@
     "categories": {
         "اولى ثانوي": {
             "subjects": {
-                "كيمياء": []
+                "كيمياء": [
+                    {
+                        "title": "كتاب الامتحان",
+                        "file_url": "https://raw.githubusercontent.com/h7665331/elqiyada-site/main/books/book_1787564226.pdf"
+                    }
+                ]
             }
         }
     },
