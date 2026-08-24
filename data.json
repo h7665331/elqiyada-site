@@ -2,7 +2,11 @@
     "site_name": "القيادة",
     "site_description": "المكتبة الرقمية الشاملة لتحميل كتب جميع الصفوف والمراحل التعليمية",
     "background_image": "https://raw.githubusercontent.com/h7665331/elqiyada-site/main/books/background_1787560553.jpg",
-    "categories": {},
+    "categories": {
+        "اولى ثانوي": {
+            "subjects": {}
+        }
+    },
     "contact": {
         "whatsapp": "https://wa.me/+201014047971",
         "telegram": "https://t.me/fxxso",
