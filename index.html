@@ -43,7 +43,6 @@
             overflow-x: hidden;
         }
 
-        /* الناف بار العائمة العالمية */
         nav {
             position: fixed;
             bottom: 25px;
@@ -131,7 +130,6 @@
             margin: 0 auto;
         }
 
-        /* شبكة الأقسام العصرية */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -169,7 +167,6 @@
             font-size: 0.9rem;
         }
 
-        /* شاشة المواد والكتب الداخلية */
         #content-view {
             display: none;
             background: var(--glass-bg);
@@ -249,7 +246,6 @@
             transform: scale(1.05);
         }
 
-        /* قسم التواصل الاحترافي */
         .contact-section {
             background: var(--glass-bg);
             backdrop-filter: blur(15px);
@@ -327,54 +323,41 @@
             <p id="main-desc">جاري تحميل المحتوى...</p>
         </div>
 
-        <!-- واجهة الأقسام الرئيسية -->
         <div id="categories-view">
-            <div id="categories-grid" class="grid-container">
-                <!-- يتم تعبئتها ديناميكياً من ملف data.json -->
-            </div>
+            <div id="categories-grid" class="grid-container"></div>
         </div>
 
-        <!-- واجهة تفاصيل القسم والمواد والكتب -->
         <div id="content-view">
             <button class="back-btn" onclick="showHome()"><i class="fa-solid fa-arrow-right"></i> رجوع للأقسام</button>
             <h3 id="current-category-title" style="margin-bottom: 25px; font-size: 1.8rem; font-weight: 800;"></h3>
-            <div id="subjects-container">
-                <!-- يتم تعبئتها ديناميكياً -->
-            </div>
+            <div id="subjects-container"></div>
         </div>
 
-        <!-- قسم التواصل -->
         <div id="contact" class="contact-section" style="margin-top: 60px;">
             <h3>تواصل معنا</h3>
             <p>لديك استفسار أو واجهتك مشكلة؟ تواصل معنا مباشرة عبر المنصات التالية:</p>
-            <div class="social-links" id="social-container">
-                <!-- يتم جلب اللينكات ديناميكياً -->
-            </div>
+            <div class="social-links" id="social-container"></div>
         </div>
     </div>
 
     <script>
         let globalData = {};
 
-        // جلب البيانات من ملف data.json وتحديث الواجهة أوتوماتيكياً
         async function loadSiteData() {
             try {
                 const response = await fetch('data.json?t=' + new Date().getTime());
                 globalData = await response.json();
                 
-                // تحديث النصوص والعناوين
                 document.getElementById('page-title').innerText = globalData.site_name;
                 document.getElementById('nav-brand').innerText = globalData.site_name;
                 document.getElementById('main-heading').innerText = globalData.site_name;
                 document.getElementById('main-desc').innerText = globalData.site_description;
 
-                // رسم الأقسام
                 renderCategories();
-                // رسم وسائل التواصل
                 renderContact();
             } catch (error) {
                 console.error("Error loading site data:", error);
-                document.getElementById('categories-grid').innerHTML = '<div class="empty-state">عفواً، برجاء رفع ملف data.json أو تشغيل السيرفر بصورة صحيحة.</div>';
+                document.getElementById('categories-grid').innerHTML = '<div class="empty-state">عفواً، برجاء التأكد من ملف data.json.</div>';
             }
         }
 
@@ -433,7 +416,7 @@
                         booksHtml += `
                             <div class="book-item">
                                 <span>${book.title}</span>
-                                <a href="${book.file_url}" target="_blank" class="download-btn"><i class="fa-solid fa-download"></i> تحميل</a>
+                                <a href="${book.file_url}" target="_blank" download class="download-btn"><i class="fa-solid fa-download"></i> تحميل</a>
                             </div>
                         `;
                     });
@@ -477,7 +460,6 @@
             }
         }
 
-        // تشغيل التحميل عند فتح الموقع
         loadSiteData();
     </script>
 </body>
