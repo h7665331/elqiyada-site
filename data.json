@@ -2,7 +2,11 @@
     "site_name": "TAMARIDYANO",
     "site_description": "​﴿ وَأَنْ لَـيْـسَ لِـلْإِنْـسَـانِ إِلَّا مَـا سَـعَـىٰ ۝ وَأَنَّ سَـعْـيَـهُ سَـوْفَ يُـرَىٰ ﴾",
     "background_image": "https://raw.githubusercontent.com/h7665331/elqiyada-site/main/books/background_1787741141.jpg",
-    "categories": {},
+    "categories": {
+        "الصف_الأول_الثانوي": {
+            "subjects": {}
+        }
+    },
     "contact": {
         "whatsapp": "https://wa.me/+201014047971",
         "telegram": "t.me/tania_tamrid_bot",
