@@ -2,24 +2,7 @@
     "site_name": "القيادة",
     "site_description": "المكتبة الرقمية الشاملة لتحميل كتب جميع الصفوف والمراحل التعليمية",
     "background_image": "https://raw.githubusercontent.com/h7665331/elqiyada-site/main/books/background_1787560553.jpg",
-    "categories": {
-        "اولى ثانوي": {
-            "subjects": {
-                "كيمياء": [
-                    {
-                        "title": "كتاب الامتحان",
-                        "file_url": "https://raw.githubusercontent.com/h7665331/elqiyada-site/main/books/book_1787564226.pdf"
-                    }
-                ],
-                "عربي": [
-                    {
-                        "title": "كتاب العربي",
-                        "file_url": "https://raw.githubusercontent.com/h7665331/elqiyada-site/main/books/%D8%A7%D9%88%D9%84%D9%89%20%D8%AB%D8%A7%D9%86%D9%88%D9%8A%20-%20%D8%B9%D8%B1%D8%A8%D9%8A%20-%20%D9%83%D8%AA%D8%A7%D8%A8%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A.pdf"
-                    }
-                ]
-            }
-        }
-    },
+    "categories": {},
     "contact": {
         "whatsapp": "https://wa.me/+201014047971",
         "telegram": "t.me/tania_tamrid_bot",
