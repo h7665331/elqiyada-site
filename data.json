@@ -4,7 +4,9 @@
     "background_image": "https://raw.githubusercontent.com/h7665331/elqiyada-site/main/books/background_1787741141.jpg",
     "categories": {
         "أولى ثانوي": {
-            "subjects": {}
+            "subjects": {
+                "كتاب أساسيات تمريض \"نظري\"": []
+            }
         }
     },
     "contact": {
